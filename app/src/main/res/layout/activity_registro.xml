@@ -9,7 +9,7 @@
 
     <Button
             android:layout_width="139dp"
-            android:layout_height="47dp" android:id="@+id/button"
+            android:layout_height="47dp" android:id="@+id/btnRegistro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
             android:layout_height="46dp"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/txtNombre"
             app:layout_constraintTop_toTopOf="@+id/appBarLayout"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.219"
@@ -46,7 +46,7 @@
             android:layout_height="46dp"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/txtCorreo"
             app:layout_constraintTop_toTopOf="@+id/appBarLayout"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.312"
@@ -57,26 +57,48 @@
             android:layout_height="46dp"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/txtPass"
             app:layout_constraintTop_toTopOf="@+id/appBarLayout"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.403"
             android:hint="@string/pass" android:background="@drawable/borde"
             app:layout_constraintHorizontal_bias="0.507"/>
+
+
     <Spinner
             android:layout_width="155dp"
             android:layout_height="46dp" android:id="@+id/spinner"
             android:spinnerMode="dropdown" android:background="@drawable/borde"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.14" app:layout_constraintVertical_bias="0.513"/>
-
-
+            app:layout_constraintHorizontal_bias="0.14" app:layout_constraintVertical_bias="0.48"/>
     <Spinner
             android:layout_width="155dp"
             android:layout_height="46dp" android:id="@+id/spinner2"
             android:spinnerMode="dropdown" android:background="@drawable/borde"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.863" app:layout_constraintVertical_bias="0.513"/>
+            app:layout_constraintHorizontal_bias="0.863" app:layout_constraintVertical_bias="0.48"/>
+    <ImageView
+            android:layout_width="151dp"
+            android:layout_height="163dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/imaUsuario"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.138"
+            app:layout_constraintVertical_bias="0.73"/>
+    <Button
+            android:text="@string/gallery"
+            android:layout_width="141dp"
+            android:layout_height="44dp" android:id="@+id/btnGaleria"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.87"
+            app:layout_constraintVertical_bias="0.646"/>
+    <Button
+            android:text="@string/camera"
+            android:layout_width="141dp"
+            android:layout_height="44dp" android:id="@+id/btnCamara"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.87" app:layout_constraintVertical_bias="0.752"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
