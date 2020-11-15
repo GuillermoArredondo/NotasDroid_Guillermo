@@ -14,7 +14,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.948" android:background="@color/colorAccent"
-            android:textColor="#FFFFFF" tools:text="@string/register"/>
+            android:textColor="#FFFFFF" tools:text="REGISTRARSE"/>
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="@+id/appBarLayout"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.219"
-            android:hint="@string/name" android:background="@drawable/borde"/>
+            android:hint="@string/name" android:background="@drawable/borde" android:editable="true"/>
     <EditText
             android:layout_width="340dp"
             android:layout_height="46dp"
