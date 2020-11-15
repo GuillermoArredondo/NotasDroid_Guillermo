@@ -4,17 +4,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".Registro">
 
-    <Button
-            android:layout_width="139dp"
-            android:layout_height="47dp" android:id="@+id/btnRegistro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.948" android:background="@color/colorAccent"
-            android:textColor="#FFFFFF" tools:text="REGISTRARSE"/>
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -26,7 +18,7 @@
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="114dp"
+                android:layout_height="117dp"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
@@ -81,11 +73,12 @@
             app:layout_constraintHorizontal_bias="0.863" app:layout_constraintVertical_bias="0.48"/>
     <ImageView
             android:layout_width="151dp"
-            android:layout_height="163dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/imaUsuario"
+            android:layout_height="163dp" android:src="@mipmap/ic_launcher"
+            android:id="@+id/imaUsuario"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.138"
-            app:layout_constraintVertical_bias="0.73"/>
+            app:layout_constraintVertical_bias="0.73" tools:visibility="visible"/>
     <Button
             android:text="@string/gallery"
             android:layout_width="141dp"
@@ -101,4 +94,12 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.87" app:layout_constraintVertical_bias="0.752"/>
+    <Button
+            android:text="@string/register"
+            android:layout_width="139dp"
+            android:layout_height="46dp" android:id="@+id/btnRegistro"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.935" android:background="@drawable/bordebotones"
+            android:textColor="#FFFFFF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

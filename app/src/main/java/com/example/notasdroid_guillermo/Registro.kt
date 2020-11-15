@@ -27,6 +27,7 @@ class Registro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
+
         cargarSpinnerCiclos()
         cargarSpinnerCursos()
         abrirGaleria()
@@ -101,7 +102,7 @@ class Registro : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode==req_galeria) {
             imaUsuario.setImageURI(data?.data)
         }
-        if (resultCode == Activity.RESULT_OK && resultCode == req_camara) {
+        if (resultCode == Activity.RESULT_OK && requestCode == req_camara) {
             imaUsuario.setImageURI(foto)
         }
     }
