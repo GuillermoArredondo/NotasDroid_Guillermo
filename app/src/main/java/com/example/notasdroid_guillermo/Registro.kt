@@ -4,14 +4,24 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64.DEFAULT
+import android.util.Base64.encodeToString
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import kotlinx.android.synthetic.main.activity_registro.*
+import java.io.ByteArrayOutputStream
+import java.lang.Byte.decode
+
 
 
 class Registro : AppCompatActivity() {
@@ -21,18 +31,79 @@ class Registro : AppCompatActivity() {
     private val req_galeria = 0
     private val req_camara = 1
     var foto: Uri? = null
+    val usu = AdminUsuario()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
-
         cargarSpinnerCiclos()
         cargarSpinnerCursos()
         abrirGaleria()
         abrirCamara()
+        insertarUsuario()
     }
+
+    //inserto el usuario en la BBDD
+    private fun insertarUsuario(){
+        btnRegistro.setOnClickListener(){
+            val u = Usuario(
+                txtCorreo.text.toString(),
+                txtNombre.text.toString(),
+                txtPass.text.toString(),
+                spinner.selectedItem.toString(),
+                spinner2.selectedItem.toString(),
+                bitmapToBase64(imaUsuario.drawable.toBitmap())!!
+            )
+            usu.addUsuario(u)
+            Log.i("String de la imagen:", bitmapToBase64(imaUsuario.drawable.toBitmap())!!)
+            finish()
+        }
+    }
+
+    //obtener bitmap de la imagen
+    fun obtenerBitmap(): Bitmap{
+        val bitmap = (imaUsuario.getDrawable() as BitmapDrawable).bitmap
+        return bitmap
+    }
+
+    //convertir bitmap en string
+    //fun bitmapToBase64(bitmap: Bitmap): String {
+    //    val stream = ByteArrayOutputStream()
+    //    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+    //    val imagen: ByteArray = stream.toByteArray()
+    //    val imagenString = String(imagen)
+    //    return imagenString
+    //}
+
+
+    /**
+     * Convierte una cadena Base64 a Bitmap
+     *
+     * @param b64String cadena Base 64
+     * @return Bitmap
+
+    fun base64ToBitmap(b64String: String): Bitmap? {
+        val imageAsBytes: ByteArray = decode(b64String.toByteArray(),DEFAULT)
+        return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size)
+    }
+     */
+
+    /**
+     * Convierte un Bitmap a una cadena Base64
+     *
+     * @param bitmap Bitmap
+     * @return Cadena Base64
+     */
+    fun bitmapToBase64(bitmap: Bitmap): String? {
+        // Comrimimos al 60 % la imagen
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 60, stream)
+        val byteArray = stream.toByteArray()
+        return encodeToString(byteArray, DEFAULT)
+    }
+
 
 
     //pido los permisos para abrir la galeria
@@ -51,13 +122,18 @@ class Registro : AppCompatActivity() {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     mostrarGaleria()
                 else
-                    Toast.makeText(applicationContext, "No tienes permiso para acceder a la galería", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "No tienes permiso para acceder a la galería",
+                        Toast.LENGTH_SHORT
+                    ).show()
             }
             req_camara -> {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     abrirCamara()
                 else
-                    Toast.makeText(applicationContext, "No tienes permiso para acceder a la cámara", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "No tienes permiso para acceder a la cámara", Toast.LENGTH_SHORT)
+                        .show()
             }
         }
     }
@@ -66,7 +142,7 @@ class Registro : AppCompatActivity() {
     private fun mostrarGaleria(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent,req_galeria)
+        startActivityForResult(intent, req_galeria)
     }
 
 

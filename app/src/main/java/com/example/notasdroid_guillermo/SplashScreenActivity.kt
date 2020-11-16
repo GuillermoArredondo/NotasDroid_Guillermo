@@ -20,6 +20,6 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
 
-        }, 3000) // 3 segundos de delay para abrir la mainActivity
+        }, 2000) // 2 segundos de delay para abrir la mainActivity
     }
 }
