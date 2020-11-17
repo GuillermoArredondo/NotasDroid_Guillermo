@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         var txtNombreNav = navHeader.findViewById<TextView>(R.id.txtNombreNav)
         var txtCorreoNav = navHeader.findViewById<TextView>(R.id.txtCorreoNav)
 
-        //asigno los datos del usuario al navHeader
+        //asigno los datos del usuario al navHeader.
         val usuario : Usuario
         val correo = intent.getStringExtra(EXTRA_MESSAGE)
         Log.i("El correo seria este:", correo.toString())
