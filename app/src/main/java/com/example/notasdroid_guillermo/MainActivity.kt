@@ -1,19 +1,23 @@
 package com.example.notasdroid_guillermo
 
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
+import android.util.Log
 import android.view.Menu
-import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +35,22 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+
         val navView: NavigationView = findViewById(R.id.nav_view)
+        val navHeader: View = navView.getHeaderView(0)
+        var imaUsuarioNav = navHeader.findViewById<ImageView>(R.id.imaUsuarioNav)
+        var txtNombreNav = navHeader.findViewById<TextView>(R.id.txtNombreNav)
+        var txtCorreoNav = navHeader.findViewById<TextView>(R.id.txtCorreoNav)
+
+        //asigno los datos del usuario al navHeader
+        val usuario : Usuario
+        val correo = intent.getStringExtra(EXTRA_MESSAGE)
+        Log.i("El correo seria este:", correo.toString())
+        usuario = Utils.obtenerUsuario(correo.toString())!!
+        txtNombreNav.setText(usuario.nombre)
+        txtCorreoNav.setText(usuario.correo)
+        imaUsuarioNav.setImageBitmap(Utils.base64ToBitmap(usuario.foto))
+
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -44,7 +63,9 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         //Toast.makeText(this,"Bienvenido",Toast.LENGTH_SHORT).show()
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
