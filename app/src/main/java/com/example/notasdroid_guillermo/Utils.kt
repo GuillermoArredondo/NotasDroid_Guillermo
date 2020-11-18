@@ -5,7 +5,9 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import java.io.ByteArrayOutputStream
 
+
 object Utils {
+
 
     /**
      * Comprueba si las crendenciales del usuario son correctas
@@ -56,5 +58,6 @@ object Utils {
         val imageAsBytes: ByteArray = Base64.decode(b64String, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size)
     }
+
 
 }

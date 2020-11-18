@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -15,13 +16,23 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    companion object{
+        lateinit var adminMod: AdminModulo
+    }
+
+    var usuario = Usuario("","","",0,0,"")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +73,19 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //Toast.makeText(this,"Bienvenido",Toast.LENGTH_SHORT).show()
+        adminMod = AdminModulo()
+        //verModulos(rvMod)
+    }
 
+    private fun verModulos(view: RecyclerView){
+        val correo = intent.getStringExtra(EXTRA_MESSAGE)
+        usuario = Utils.obtenerUsuario(correo.toString())!!
+        val listaModulos = adminMod.getModulos(usuario.ciclo, usuario.curso)
+        Log.i("Cuenta de modulos:",listaModulos?.size.toString())
+        val adapter = ModuloAdapter(this, listaModulos!!)
+        val rv: RecyclerView = findViewById(R.id.rvMod)
+        rv.layoutManager = LinearLayoutManager(this,LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager
+        rv.adapter = adapter
     }
 
 

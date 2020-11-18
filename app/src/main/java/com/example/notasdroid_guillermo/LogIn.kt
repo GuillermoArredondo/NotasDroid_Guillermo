@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_log_in.*
+import java.io.Serializable
 
 class LogIn : AppCompatActivity() {
     val STATE_USER = "user"

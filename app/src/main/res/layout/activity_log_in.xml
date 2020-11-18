@@ -44,7 +44,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0.385" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.502"
-                android:background="@drawable/borde"/>
+                android:background="@drawable/zborde"/>
         <Button
                 android:text="@string/login"
                 android:layout_width="139dp"
@@ -52,7 +52,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintVertical_bias="0.635" android:background="@drawable/bordebotones"
+                app:layout_constraintVertical_bias="0.635" android:background="@drawable/zbordebotones"
                 android:textColor="#FFFFFF"/>
         <EditText
                 android:layout_width="260dp"
@@ -60,7 +60,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:id="@+id/txtPassLogIn"
-                android:hint="@string/pass" android:background="@drawable/borde"
+                android:hint="@string/pass" android:background="@drawable/zborde"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>

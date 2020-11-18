@@ -32,6 +32,7 @@ class Registro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
+        //cambiarFoto()
         cargarSpinnerCiclos()
         cargarSpinnerCursos()
         abrirGaleria()
@@ -46,14 +47,19 @@ class Registro : AppCompatActivity() {
                 txtCorreo.text.toString(),
                 txtNombre.text.toString(),
                 txtPass.text.toString(),
-                spinner.selectedItem.toString(),
-                spinner2.selectedItem.toString(),
+                spinner.selectedItemPosition,
+                spinner2.selectedItemPosition,
                 Utils.bitmapToBase64(imaUsuario.drawable.toBitmap())!!
             )
             usu.addUsuario(u)
             Log.i("String de la imagen:", Utils.bitmapToBase64(imaUsuario.drawable.toBitmap())!!)
             finish()
         }
+    }
+
+    //ahora borrar
+    fun cambiarFoto(){
+        imaUsuario.setImageDrawable(getResources().getDrawable(1))
     }
 
     //obtener bitmap de la imagen
@@ -144,7 +150,7 @@ class Registro : AppCompatActivity() {
     fun cargarSpinnerCiclos(){
 
         ciclo = findViewById(R.id.spinner) as Spinner
-        val ciclos = arrayOf("DAM", "DAW", "ASIR")
+        val ciclos = arrayOf("ASIR", "DAM", "DAW")
         ciclo.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ciclos)
     }
 

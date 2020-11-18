@@ -1,4 +1,4 @@
-package com.example.notasdroid_guillermo.ui.home
+package com.example.notasdroid_guillermo.ui.MiMatricula
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
