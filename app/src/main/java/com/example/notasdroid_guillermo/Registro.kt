@@ -5,29 +5,25 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Base64.DEFAULT
-import android.util.Base64.encodeToString
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import kotlinx.android.synthetic.main.activity_registro.*
-import java.io.ByteArrayOutputStream
-import java.lang.Byte.decode
-
 
 
 class Registro : AppCompatActivity() {
 
     lateinit var ciclo : Spinner
     lateinit var curso : Spinner
+    lateinit var image : ImageView
     private val req_galeria = 0
     private val req_camara = 1
     var foto: Uri? = null
@@ -38,6 +34,7 @@ class Registro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
+        //cambiarFoto()
         cargarSpinnerCiclos()
         cargarSpinnerCursos()
         abrirGaleria()
@@ -52,14 +49,24 @@ class Registro : AppCompatActivity() {
                 txtCorreo.text.toString(),
                 txtNombre.text.toString(),
                 txtPass.text.toString(),
-                spinner.selectedItem.toString(),
-                spinner2.selectedItem.toString(),
-                bitmapToBase64(imaUsuario.drawable.toBitmap())!!
+                spinner.selectedItemPosition,
+                spinner2.selectedItemPosition,
+                Utils.bitmapToBase64(imaUsuario.drawable.toBitmap())!!
             )
             usu.addUsuario(u)
-            Log.i("String de la imagen:", bitmapToBase64(imaUsuario.drawable.toBitmap())!!)
+            Log.i("String de la imagen:", Utils.bitmapToBase64(imaUsuario.drawable.toBitmap())!!)
             finish()
         }
+    }
+
+    //ahora borrar
+    fun cambiarFoto(){
+
+        imaUsuario.setImageDrawable(getResources().getDrawable(2131165277))
+        //image = findViewById(R.id.imaUsuario) as ImageView
+        var uriIma = Uri.parse("android.resource//"+packageName+R.drawable.asir_1_1)
+        Log.i("la uri seria:",uriIma.toString())
+        //imaUsuario.setImageURI(uriIma)
     }
 
     //obtener bitmap de la imagen
@@ -67,43 +74,6 @@ class Registro : AppCompatActivity() {
         val bitmap = (imaUsuario.getDrawable() as BitmapDrawable).bitmap
         return bitmap
     }
-
-    //convertir bitmap en string
-    //fun bitmapToBase64(bitmap: Bitmap): String {
-    //    val stream = ByteArrayOutputStream()
-    //    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
-    //    val imagen: ByteArray = stream.toByteArray()
-    //    val imagenString = String(imagen)
-    //    return imagenString
-    //}
-
-
-    /**
-     * Convierte una cadena Base64 a Bitmap
-     *
-     * @param b64String cadena Base 64
-     * @return Bitmap
-
-    fun base64ToBitmap(b64String: String): Bitmap? {
-        val imageAsBytes: ByteArray = decode(b64String.toByteArray(),DEFAULT)
-        return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size)
-    }
-     */
-
-    /**
-     * Convierte un Bitmap a una cadena Base64
-     *
-     * @param bitmap Bitmap
-     * @return Cadena Base64
-     */
-    fun bitmapToBase64(bitmap: Bitmap): String? {
-        // Comrimimos al 60 % la imagen
-        val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 60, stream)
-        val byteArray = stream.toByteArray()
-        return encodeToString(byteArray, DEFAULT)
-    }
-
 
 
     //pido los permisos para abrir la galeria
@@ -187,7 +157,7 @@ class Registro : AppCompatActivity() {
     fun cargarSpinnerCiclos(){
 
         ciclo = findViewById(R.id.spinner) as Spinner
-        val ciclos = arrayOf("DAM", "DAW", "ASIR")
+        val ciclos = arrayOf("ASIR", "DAM", "DAW")
         ciclo.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ciclos)
     }
 

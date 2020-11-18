@@ -1,4 +1,4 @@
-package com.example.notasdroid_guillermo.ui.gallery
+package com.example.notasdroid_guillermo.ui.MiExpediente
 
 import android.os.Bundle
 import android.view.LayoutInflater

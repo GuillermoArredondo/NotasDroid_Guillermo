@@ -16,7 +16,7 @@
             android:id="@+id/txtNombre"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:hint="@string/name" android:background="@drawable/borde" android:editable="true"
+            android:hint="@string/name" android:background="@drawable/zborde" android:editable="true"
             app:layout_constraintHorizontal_bias="0.507" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.154"/>
     <EditText
@@ -27,7 +27,7 @@
             android:id="@+id/txtCorreo"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:hint="@string/email" android:background="@drawable/borde"
+            android:hint="@string/email" android:background="@drawable/zborde"
             app:layout_constraintHorizontal_bias="0.507" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.262"/>
     <EditText
@@ -38,20 +38,20 @@
             android:id="@+id/txtPass"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:hint="@string/pass" android:background="@drawable/borde"
+            android:hint="@string/pass" android:background="@drawable/zborde"
             app:layout_constraintHorizontal_bias="0.507" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.367"/>
     <Spinner
             android:layout_width="155dp"
             android:layout_height="46dp" android:id="@+id/spinner"
-            android:spinnerMode="dropdown" android:background="@drawable/borde"
+            android:spinnerMode="dropdown" android:background="@drawable/zborde"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.14" app:layout_constraintVertical_bias="0.48"/>
     <Spinner
             android:layout_width="155dp"
             android:layout_height="46dp" android:id="@+id/spinner2"
-            android:spinnerMode="dropdown" android:background="@drawable/borde"
+            android:spinnerMode="dropdown" android:background="@drawable/zborde"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.863" app:layout_constraintVertical_bias="0.48"/>
@@ -84,6 +84,6 @@
             android:layout_height="46dp" android:id="@+id/btnRegistro"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.935" android:background="@drawable/bordebotones"
+            app:layout_constraintVertical_bias="0.935" android:background="@drawable/zbordebotones"
             android:textColor="#FFFFFF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

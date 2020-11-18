@@ -4,21 +4,21 @@ import android.util.Log
 import android.widget.Toast
 import java.lang.Exception
 
-data class Usuario(var correo:String, var nombre:String, var pass:String, var ciclo:String, var curso:String, var foto:String)
+data class Usuario(var correo:String, var nombre:String, var pass:String, var ciclo:Int, var curso:Int, var foto:String)
 
 class AdminUsuario {
 
     //Obtengo un usuario con filtro correo
     fun getUsuario(correo: String):Usuario?{
         try {
-            var usuario = Usuario("","","","","","")
+            var usuario = Usuario("","","",0,0,"")
             val db = NotasDroid.DB.readableDatabase
             val args = arrayOf(correo)
             val c = db.rawQuery("SELECT * FROM ${NotasDroid.TB_USUARIOS} WHERE ${Contract.Usuario.CORREO} = ?",args)
             if (c.moveToFirst()){
                do {
-                   usuario = Usuario(c.getString(0), c.getString(1), c.getString(2), c.getString(3),
-                       c.getString(4), c.getString(5))
+                   usuario = Usuario(c.getString(0), c.getString(1), c.getString(2), c.getInt(3),
+                       c.getInt(4), c.getString(5))
                }while(c.moveToNext())
             }
             db.close()
