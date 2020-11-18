@@ -9,7 +9,7 @@ class NotasDroid :Application(){
         lateinit var CONTEXT : Context
         lateinit var DB : InitDB
         val DB_NAME = "NotasDroidDB"
-        val VERSION = 9
+        val VERSION = 10
         val TB_USUARIOS = "tbUsuarios"
         val TB_MODULOS = "tbModulos"
         val TB_PRUEBAS = "tbPruebas"

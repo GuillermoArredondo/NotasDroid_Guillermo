@@ -31,8 +31,7 @@ class ModuloAdapter(ctx: Context, val modulo: ArrayList<Modulo>): RecyclerView.A
         holder.txtNom.text  = modulo.nombre
         holder.txtNot.text = "Nota media"
         holder.txtNotaMedia.text = "10"
-        //holder.imaMod.setImageDrawable(ctx.getResources().getDrawable(modulo.foto_modeulo))
-        holder.imaMod.setImageDrawable(ctx.getResources().getDrawable(R.drawable.asir_1_1))
+        holder.imaMod.setImageDrawable(ctx.getResources().getDrawable(modulo.foto_modeulo))
 
     }
 

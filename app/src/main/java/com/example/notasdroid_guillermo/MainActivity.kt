@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         adminMod = AdminModulo()
-        //verModulos(rvMod)
+        verModulos(rvMod2)
     }
 
     private fun verModulos(view: RecyclerView){
@@ -83,9 +84,9 @@ class MainActivity : AppCompatActivity() {
         val listaModulos = adminMod.getModulos(usuario.ciclo, usuario.curso)
         Log.i("Cuenta de modulos:",listaModulos?.size.toString())
         val adapter = ModuloAdapter(this, listaModulos!!)
-        val rv: RecyclerView = findViewById(R.id.rvMod)
-        rv.layoutManager = LinearLayoutManager(this,LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager
-        rv.adapter = adapter
+        val rvMod2: RecyclerView = findViewById(R.id.rvMod2)
+        rvMod2.layoutManager = LinearLayoutManager(this,LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager
+        rvMod2.adapter = adapter
     }
 
 

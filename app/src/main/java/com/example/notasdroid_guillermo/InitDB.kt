@@ -40,13 +40,15 @@ class InitDB: SQLiteOpenHelper(NotasDroid.CONTEXT, NotasDroid.DB_NAME, null, Not
             "${Contract.Modulo.NOMBRE} TEXT NOT NULL, " +
             "${Contract.Modulo.FOTO_MODULO} INTEGER NOT NULL); "
 
-    val query3 = "INSERT INTO ${NotasDroid.TB_MODULOS} (${Contract.Modulo.ID_MODULO},${Contract.Modulo.CICLO},${Contract.Modulo.CURSO},${Contract.Modulo.NOMBRE},${Contract.Modulo.FOTO_MODULO}) VALUES(1,0,0,'Implantación de sistemas operativos',1); " +
-            "INSERT INTO ${NotasDroid.TB_MODULOS} (${Contract.Modulo.ID_MODULO},${Contract.Modulo.CICLO},${Contract.Modulo.CURSO},${Contract.Modulo.NOMBRE},${Contract.Modulo.FOTO_MODULO}) VALUES(2,0,0,'Planificación y administración de redes',2);"
+    val query3 = "INSERT INTO ${NotasDroid.TB_MODULOS} (${Contract.Modulo.ID_MODULO},${Contract.Modulo.CICLO},${Contract.Modulo.CURSO},${Contract.Modulo.NOMBRE},${Contract.Modulo.FOTO_MODULO}) VALUES(1,0,0,'Implantación de sistemas operativos',2131165277);"
+
+    val query4 = "INSERT INTO ${NotasDroid.TB_MODULOS} (${Contract.Modulo.ID_MODULO},${Contract.Modulo.CICLO},${Contract.Modulo.CURSO},${Contract.Modulo.NOMBRE},${Contract.Modulo.FOTO_MODULO}) VALUES(2,0,0,'Planificación y administración de redes',2131165278);"
 
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(qryCreaTabla)
         db!!.execSQL(query2)
         db!!.execSQL(query3)
+        db!!.execSQL(query4)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -56,6 +58,7 @@ class InitDB: SQLiteOpenHelper(NotasDroid.CONTEXT, NotasDroid.DB_NAME, null, Not
         db.execSQL(qryCreaTabla)
         db!!.execSQL(query2)
         db!!.execSQL(query3)
+        db!!.execSQL(query4)
 
     }
 }

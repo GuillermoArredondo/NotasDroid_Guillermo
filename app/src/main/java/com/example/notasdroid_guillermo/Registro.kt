@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,7 @@ class Registro : AppCompatActivity() {
 
     lateinit var ciclo : Spinner
     lateinit var curso : Spinner
+    lateinit var image : ImageView
     private val req_galeria = 0
     private val req_camara = 1
     var foto: Uri? = null
@@ -59,7 +61,12 @@ class Registro : AppCompatActivity() {
 
     //ahora borrar
     fun cambiarFoto(){
-        imaUsuario.setImageDrawable(getResources().getDrawable(1))
+
+        imaUsuario.setImageDrawable(getResources().getDrawable(2131165277))
+        //image = findViewById(R.id.imaUsuario) as ImageView
+        var uriIma = Uri.parse("android.resource//"+packageName+R.drawable.asir_1_1)
+        Log.i("la uri seria:",uriIma.toString())
+        //imaUsuario.setImageURI(uriIma)
     }
 
     //obtener bitmap de la imagen
