@@ -3,8 +3,8 @@ package com.example.notasdroid_guillermo
 import android.widget.Toast
 import java.lang.Exception
 
+//clase POJO Modulo
 data class Modulo(var id_modulo:Int, var ciclo:Int, var curso:Int, var nombre:String, var foto_modeulo:Int)
-
 
 class AdminModulo {
 
@@ -29,11 +29,9 @@ class AdminModulo {
                     modulos.add(modulo)
                 }
             }
-
             c.close()
             db.close()
             return modulos
-
         }catch (ex: Exception) {
             Toast.makeText(NotasDroid.CONTEXT, "No se pudo obtener los modulos", Toast.LENGTH_SHORT).show()
             return null

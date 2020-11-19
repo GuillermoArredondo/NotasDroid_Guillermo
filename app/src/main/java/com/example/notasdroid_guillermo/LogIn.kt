@@ -44,6 +44,7 @@ class LogIn : AppCompatActivity() {
     }
 
 
+    //funcion para abrir la actividad del registro
     fun abrirRegistro(view: View){
         val intent = Intent(this, Registro::class.java)
         startActivity(intent)

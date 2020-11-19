@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+    >
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/txtNomPrueba"
+                  android:text="Prueba 1"
+                  android:textSize="18sp"
+                  android:textStyle="bold"
+                  android:textColor="@color/negro"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginStart="10dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/txtFecha"
+                  android:text="18/11/2020"
+                  android:textSize="15sp"
+                  android:textColor="@color/negro"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginStart="10dp"
+                  android:layout_below="@id/txtNomPrueba"
+                  android:layout_marginTop="16dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/txtRealizada"
+                  android:text="Realizada"
+                  android:textSize="15sp"
+                  android:textColor="@color/negro"
+                  android:layout_toRightOf="@id/txtFecha"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginTop="40dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/txtNota"
+                  android:text="10"
+                  android:textSize="15sp"
+                  android:textStyle="bold"
+                  android:textColor="@color/negro"
+                  android:layout_toRightOf="@id/txtRealizada"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginTop="40dp"/>
+        <Button
+                android:text="Editar"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@id/txtNomPrueba"
+                android:layout_marginLeft="200dp"
+                android:id="@+id/btnEditar"/>
+        <Button
+                android:text="Borrar"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/btnEditar"
+                android:layout_marginLeft="285dp"
+                android:id="@+id/btnBorrar"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

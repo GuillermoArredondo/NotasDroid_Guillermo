@@ -8,9 +8,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -27,13 +29,13 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    public var isClicEventoFila = true
 
     companion object{
         lateinit var adminMod: AdminModulo
     }
 
     var usuario = Usuario("","","",0,0,"")
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
+        fab.hide()
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -75,9 +78,11 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         adminMod = AdminModulo()
+
         verModulos(rvMod2)
     }
 
+    //funcion para cargar los modulos del usuario en el recyclerView
     private fun verModulos(view: RecyclerView){
         val correo = intent.getStringExtra(EXTRA_MESSAGE)
         usuario = Utils.obtenerUsuario(correo.toString())!!
@@ -87,8 +92,21 @@ class MainActivity : AppCompatActivity() {
         val rvMod2: RecyclerView = findViewById(R.id.rvMod2)
         rvMod2.layoutManager = LinearLayoutManager(this,LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager
         rvMod2.adapter = adapter
+
+        adapter.setOnClickListener(listener = {
+            abrirModulo(listaModulos[rvMod2.getChildAdapterPosition(view)])
+        })
     }
 
+
+    //funcion para abrir el fragment de las tareas de cada modulo
+    private fun abrirModulo(modulo: Modulo){
+        val transaccion = supportFragmentManager.beginTransaction().replace(R.id.container, PruebasFragment(usuario,modulo))
+        transaccion.add(R.id.content,PruebasFragment(usuario,modulo),"Tal")
+        transaccion.addToBackStack(null)
+        transaccion.commit()
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

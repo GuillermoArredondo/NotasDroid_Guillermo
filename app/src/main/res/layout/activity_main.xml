@@ -29,4 +29,9 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="1dp" android:id="@+id/rvMod2"/>
+    <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Aquí se agregan Fragments" />
 </androidx.drawerlayout.widget.DrawerLayout>

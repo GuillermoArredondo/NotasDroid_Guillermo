@@ -61,11 +61,10 @@ class Registro : AppCompatActivity() {
 
     //ahora borrar
     fun cambiarFoto(){
-
         imaUsuario.setImageDrawable(getResources().getDrawable(2131165277))
         //image = findViewById(R.id.imaUsuario) as ImageView
-        var uriIma = Uri.parse("android.resource//"+packageName+R.drawable.asir_1_1)
-        Log.i("la uri seria:",uriIma.toString())
+        var uriIma = Uri.parse(""+R.drawable.daw_1_1)
+        Log.i("id",uriIma.toString())
         //imaUsuario.setImageURI(uriIma)
     }
 
