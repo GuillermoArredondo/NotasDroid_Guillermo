@@ -1,4 +1,4 @@
-package com.example.notasdroid_guillermo.ui.gallery
+package com.example.notasdroid_guillermo.ui.MiExpediente
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
