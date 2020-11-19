@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import java.lang.Exception
 
+//Clase POJO Usuario
 data class Usuario(var correo:String, var nombre:String, var pass:String, var ciclo:Int, var curso:Int, var foto:String)
 
 class AdminUsuario {
