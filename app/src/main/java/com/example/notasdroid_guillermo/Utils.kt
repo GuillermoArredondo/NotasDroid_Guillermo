@@ -27,6 +27,9 @@ object Utils {
         return ok
     }
 
+    /**
+     * obtiene un usuario a partir del flitro correo
+     */
     fun obtenerUsuario(correo: String): Usuario?{
         val au = AdminUsuario()
         val usuario = au.getUsuario(correo)
